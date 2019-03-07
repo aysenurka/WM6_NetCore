@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form asp-action="Add" asp-controller="Category" method="post">
+            <form asp-action="Edit" asp-controller="Category" method="post">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
@@ -15,7 +15,7 @@
                         <input asp-for="CategoryName" class="form-control" />
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success" value="Kategori Kaydet" />
+                <input type="submit" class="btn btn-success" value="Kategori Güncelle" />
             </form>
         </div>
     </div>
