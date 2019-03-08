@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreGiris", "CoreGiris\Core
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20190308", "20190308", "{00E99CA9-1D36-4738-B45D-E90702B4134E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityCore", "IdentityCore\IdentityCore.csproj", "{5AA7A9FF-EAF4-4ACB-B3E7-EB7D78471B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreIdentity", "CoreIdentity\CoreIdentity.csproj", "{5AA7A9FF-EAF4-4ACB-B3E7-EB7D78471B81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
