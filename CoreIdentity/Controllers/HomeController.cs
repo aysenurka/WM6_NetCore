@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using CoreIdentity.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreIdentity.Controllers
@@ -18,6 +19,7 @@ namespace CoreIdentity.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
@@ -25,6 +27,7 @@ namespace CoreIdentity.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin,User")]
         public IActionResult Privacy()
         {
             return View();
