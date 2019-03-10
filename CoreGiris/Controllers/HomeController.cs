@@ -31,8 +31,8 @@ namespace CoreGiris.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
+            ViewBag.Hello = "Hello";
+            return View(kisiler);
         }
 
         public IActionResult Contact()
