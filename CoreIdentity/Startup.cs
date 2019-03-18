@@ -36,8 +36,7 @@ namespace CoreIdentity
                         Configuration.GetConnectionString("DefaultConnection")))
                 .AddAuthorization();
 
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddRoles<ApplicationRole>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
