@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace Kuzey.Models.IdentityModels
+namespace Kuzey.Models.IdentityEntities
 {
     public class ApplicationRole : IdentityRole
     {

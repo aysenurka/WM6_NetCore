@@ -8,7 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Kuzey.Models.IdentityModels;
+using Kuzey.BLL.Repository;
+using Kuzey.BLL.Repository.Abstracts;
+using Kuzey.Models.Entities;
+using Kuzey.Models.IdentityEntities;
 
 namespace Kuzey.UI.Web
 {
@@ -68,6 +71,9 @@ namespace Kuzey.UI.Web
                 options.AccessDeniedPath = "/Account/Login";
                 options.SlidingExpiration = true;
             });
+
+            services.AddScoped<IRepository<Category, int>, CategoryRepo>();
+            services.AddScoped<IRepository<Product, string>, ProductRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
