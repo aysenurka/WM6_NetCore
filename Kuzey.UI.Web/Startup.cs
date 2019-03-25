@@ -10,10 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Text;
+using AutoMapper;
 using Kuzey.BLL.Account;
 using Kuzey.BLL.Repository;
 using Kuzey.BLL.Repository.Abstracts;
 using Kuzey.Models.Entities;
+using Kuzey.Models.ViewModels;
 using Kuzey.UI.Web.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -45,6 +47,7 @@ namespace Kuzey.UI.Web
 
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddRoles<ApplicationRole>()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<MyContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -82,6 +85,12 @@ namespace Kuzey.UI.Web
             services.AddScoped<IRepository<Product, string>, ProductRepo>();
             services.AddScoped<MembershipTools, MembershipTools>();
 
+            services.AddCors();
+
+            services.AddAutoMapper();
+
+            Mapper.Initialize(cfg => MapConfig(cfg));
+
             services.AddMvc()
                 .AddJsonOptions(options => {
                     options.SerializerSettings.ContractResolver =
@@ -114,6 +123,13 @@ namespace Kuzey.UI.Web
                         ValidateAudience = false
                     };
                 });
+        }
+
+        private void MapConfig(IMapperConfigurationExpression cfg)
+        {
+            cfg.CreateMap<Product, ProductViewModel>()
+                .ForMember(dest => dest.CategoryName, opt => opt
+                    .MapFrom(src => src.Category != null ? src.Category.CategoryName : null));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
