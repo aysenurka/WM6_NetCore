@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kuzey.DAL.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190324175230_a1")]
-    partial class a1
+    [Migration("20190325163142_a2")]
+    partial class a2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

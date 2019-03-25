@@ -21,6 +21,7 @@ namespace Kuzey.UI.Web.Controllers.Api
             _productRepo = productRepo;
             _categoryRepo = categoryRepo;
         }
+
         [HttpGet]
         [Route("products")]
         public IActionResult Get()
@@ -66,6 +67,7 @@ namespace Kuzey.UI.Web.Controllers.Api
             };
             return Ok(model);
         }
+
         [HttpPost]
         [Route("add")]
         [Authorize]
@@ -83,6 +85,7 @@ namespace Kuzey.UI.Web.Controllers.Api
                 UnitPrice = model.UnitPrice
             };
             _productRepo.Insert(data);
+
             return Ok(new
             {
                 success = true,

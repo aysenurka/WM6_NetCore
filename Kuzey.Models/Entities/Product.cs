@@ -13,6 +13,7 @@ namespace Kuzey.Models.Entities
         public string ProductName { get; set; }
 
         public decimal UnitPrice { get; set; }
+
         public int CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
