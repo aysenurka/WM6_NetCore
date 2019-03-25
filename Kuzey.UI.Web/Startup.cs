@@ -92,7 +92,8 @@ namespace Kuzey.UI.Web
             Mapper.Initialize(cfg => MapConfig(cfg));
 
             services.AddMvc()
-                .AddJsonOptions(options => {
+                .AddJsonOptions(options =>
+                {
                     options.SerializerSettings.ContractResolver =
                         new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
                 })
@@ -129,7 +130,8 @@ namespace Kuzey.UI.Web
         {
             cfg.CreateMap<Product, ProductViewModel>()
                 .ForMember(dest => dest.CategoryName, opt => opt
-                    .MapFrom(src => src.Category != null ? src.Category.CategoryName : null));
+                    .MapFrom(src => src.Category != null ? src.Category.CategoryName : null))
+                .ReverseMap();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
